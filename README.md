@@ -1,34 +1,65 @@
 # Customer Churn Risk + Monitoring System
 
-## Business Objective
+Production-oriented machine learning system for predicting customer churn risk, explaining key churn drivers, tuning business thresholds, monitoring model drift, and tracking model performance over time.
 
-This project predicts which customers are at risk of leaving and monitors model performance over time.
+## Business Problem
 
-The goal is not only to build a classification model, but to create an operational AI system that supports business decision-making, model monitoring, drift detection, and production deployment readiness.
+Customer retention is critical in financial services because churn can reduce revenue, customer lifetime value, and operational efficiency. This project predicts which customers are most likely to leave and provides business teams with risk scores, churn drivers, and recommended retention actions.
 
-## Why This Project Matters
+## Project Highlights
 
-In financial services, customer churn can reduce revenue, customer lifetime value, and operational efficiency. A churn risk system helps business teams identify high-risk customers early and take targeted retention actions.
+- Built a churn classification model using Python and scikit-learn
+- Generated customer-level churn risk scores
+- Converted probabilities into Low, Medium, and High Risk bands
+- Added recommended retention actions by risk segment
+- Tuned model thresholds using precision, recall, and F1 score
+- Monitored data drift using Population Stability Index
+- Tracked model performance over time using AUC, precision, recall, and F1
+- Added explainability through feature importance
+- Built a Streamlit dashboard for operational monitoring
+- Designed the project for AWS SageMaker production promotion
 
-## Core Capabilities
+## Architecture
 
-- Customer churn prediction
-- Risk score generation
-- Top churn driver identification
-- Threshold tuning for business decisions
-- Model performance tracking
-- Data drift monitoring
-- KPI dashboard
-- SageMaker-ready production design
+```text
+Raw Customer Data
+        ↓
+Feature Engineering + Preprocessing
+        ↓
+Model Training
+        ↓
+Risk Scoring
+        ↓
+Threshold Tuning
+        ↓
+Drift + Performance Monitoring
+        ↓
+Dashboard + Business Actions
+        ↓
+SageMaker Production Design
 
-## Target Users
 
-- Data science teams
-- Marketing teams
-- Customer retention teams
-- Operational AI support teams
-- Risk and governance teams
-
-## Interview Alignment
-
-This project maps to operational data science work involving AI/ML model development, production monitoring, cloud deployment, explainability, and business stakeholder communication.
+customer-churn-risk-monitoring/
+├── app/
+├── dashboard/
+│   └── dashboard.py
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── scoring/
+├── models/
+├── notebooks/
+├── reports/
+│   └── figures/
+├── sagemaker/
+├── src/
+│   ├── data_simulation.py
+│   ├── train.py
+│   ├── score_customers.py
+│   ├── threshold_tuning.py
+│   ├── drift_detection.py
+│   ├── performance_monitoring.py
+│   └── explain_model.py
+├── requirements.txt
+├── config.yaml
+└── README.md
