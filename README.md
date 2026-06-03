@@ -19,9 +19,23 @@ Customer retention is critical in financial services because churn can reduce re
 - Built a Streamlit dashboard for operational monitoring
 - Designed the project for AWS SageMaker production promotion
 
+  ## Quick Start
+
+git clone <repo-url>
+cd customer-churn-risk-monitoring
+pip install -r requirements.txt
+streamlit run dashboard/dashboard.py
+
+## Key Features
+- Risk scoring engine with Low/Medium/High risk bands
+- Explainable predictions with feature importance
+- Threshold optimization (precision/recall/F1 tradeoffs)
+- Data drift detection via PSI
+- Performance monitoring dashboard
+- AWS SageMaker deployment-ready
+
 ## Architecture
 
-```text
 Raw Customer Data
         ↓
 Feature Engineering + Preprocessing
@@ -37,6 +51,16 @@ Drift + Performance Monitoring
 Dashboard + Business Actions
         ↓
 SageMaker Production Design
+
+## Project Structure
+
+| File | Purpose |
+|------|---------|
+| `src/train.py` | Train churn model |
+| `src/score_customers.py` | Generate risk scores for customers |
+| `src/threshold_tuning.py` | Optimize business thresholds |
+| `src/drift_detection.py` | Monitor feature drift |
+| `dashboard/dashboard.py` | Streamlit operational dashboard |
 
 
 customer-churn-risk-monitoring/
@@ -63,3 +87,27 @@ customer-churn-risk-monitoring/
 ├── requirements.txt
 ├── config.yaml
 └── README.md
+
+## Model Performance
+- **Test AUC:** 0.813
+- **Test Dataset:** 1,000 customers
+- **Training Dataset:** 4,000 customers
+- **Churn Rate:** 2.12%
+
+## Data Requirements
+Input features: [list key features like tenure_months, late_payments_12m, service_calls_90d, satisfaction_score]
+
+## Running the Dashboard
+
+The Streamlit dashboard displays:
+- KPI metrics (total customers, avg risk, high-risk rate)
+- Risk distribution charts
+- High-risk customer list with recommended actions
+- Threshold tuning analysis
+- Data drift monitoring
+- Model performance trends
+
+## Business Impact
+- Identifies high-risk customers for targeted retention campaigns
+- Enables threshold tuning to balance coverage vs. false positives
+- Monitors model performance decay to trigger retraining
